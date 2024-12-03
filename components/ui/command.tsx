@@ -48,11 +48,11 @@ const CommandInput = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div className="flex items-center border-b px-3" cmdk-input-wrapper="">
     <Image
-      className="mr-2 size-4 shrink-0"
+      className="mr-2 size-5 shrink-0"
       src="/icons/search.svg"
       alt="search furnitures"
-      width={16}
-      height={16}
+      width={20}
+      height={20}
     />
     <CommandPrimitive.Input
       ref={ref}

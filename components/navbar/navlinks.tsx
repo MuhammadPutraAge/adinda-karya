@@ -29,7 +29,7 @@ export default function Navlinks() {
     <ul className="flex items-center gap-8">
       {navLinks.map((navLink) => (
         <li key={navLink.url}>
-          <Link href={navLink.url} className="text-[16px] font-medium">
+          <Link href={navLink.url} className="text-base font-medium">
             {navLink.title}
           </Link>
         </li>

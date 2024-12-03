@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-slot": "^1.1.0",
     "@sanity/image-url": "^1.1.0",
     "@sanity/vision": "^3.65.1",
     "class-variance-authority": "^0.7.1",
@@ -23,7 +24,8 @@
     "sanity": "^3.65.1",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-animated": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20",
