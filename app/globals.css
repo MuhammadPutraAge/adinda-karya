@@ -6,6 +6,18 @@
   .flex-between {
     @apply flex justify-between items-center;
   }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .section-title {
+    @apply text-center text-4xl font-bold;
+  }
+
+  .section-description {
+    @apply mx-auto mt-2 max-w-lg text-center leading-6 text-grey;
+  }
 }
 
 @layer base {

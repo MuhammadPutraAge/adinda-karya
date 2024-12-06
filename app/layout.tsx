@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { SanityLive } from "@/sanity/lib/live";
 
 const roboto = localFont({
   src: [
@@ -52,9 +53,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="overflow-y-scroll">
       <body className={`${roboto.variable} bg-light text-dark antialiased`}>
         {children}
+        <SanityLive />
       </body>
     </html>
   );

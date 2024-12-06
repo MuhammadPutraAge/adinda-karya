@@ -3,21 +3,24 @@
 import ROUTES from "@/constants/routes";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
+import qs from "query-string";
 import { useCallback, useEffect, useState } from "react";
 import { CommandDialog, CommandInput, CommandList } from "../ui/command";
 
-export default function SearchDialog() {
+export default function SearchFurnitures() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    const queryParam = searchParams.get("q") || "";
-    if (queryParam) {
-      setQuery(queryParam);
+    const query = searchParams.get("query") || "";
+    if (query) {
+      setSearchQuery(query);
     }
+
+    return () => setSearchQuery("");
   }, [searchParams]);
 
   useEffect(() => {
@@ -32,24 +35,28 @@ export default function SearchDialog() {
     return () => document.removeEventListener("keydown", down);
   }, [isOpen]);
 
-  const createQueryString = useCallback(
-    (name: string, value: string) => {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set(name, value);
-
-      return params.toString();
-    },
-    [searchParams]
-  );
-
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (event.key === "Enter") {
         setIsOpen(false);
-        router.push(`${ROUTES.SHOP}?${createQueryString("q", query)}`);
+
+        const currentParams = qs.parse(searchParams.toString());
+
+        const url = qs.stringifyUrl(
+          {
+            url: ROUTES.SHOP,
+            query: {
+              ...currentParams,
+              query: searchQuery,
+            },
+          },
+          { skipEmptyString: true }
+        );
+
+        router.push(url);
       }
     },
-    [createQueryString, query, router]
+    [router, searchParams, searchQuery]
   );
 
   return (
@@ -65,9 +72,10 @@ export default function SearchDialog() {
 
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
         <CommandInput
+          className="flex-1"
           placeholder="Search furnitures..."
-          value={query}
-          onValueChange={setQuery}
+          value={searchQuery}
+          onValueChange={setSearchQuery}
           onKeyDown={onKeyDown}
         />
         <CommandList className="hidden" />
