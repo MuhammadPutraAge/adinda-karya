@@ -1,3 +1,4 @@
+import Footer from "@/components/common/Footer";
 import Navbar from "@/components/common/Navbar";
 
 export default function MainLayout({
@@ -6,8 +7,8 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-
       <main className="mt-14 min-h-screen px-40">{children}</main>
+      <Footer />
     </>
   );
 }

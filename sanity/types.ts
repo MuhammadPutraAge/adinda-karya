@@ -275,6 +275,24 @@ export type GET_BEST_SELLER_FURNITURESResult = Array<{
   price: number | null;
   slug: Slug | null;
 }>;
+// Variable: GET_FOOTER_LATEST_FURNITURES
+// Query: *[_type == 'furniture'] | order(_createdAt desc)[0...2] {cover,name,price,slug}
+export type GET_FOOTER_LATEST_FURNITURESResult = Array<{
+  cover: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  name: string | null;
+  price: number | null;
+  slug: Slug | null;
+}>;
 
 // Source: sanity/lib/queries/reviews.ts
 // Variable: GET_REVIEWS_LIST_HOME
@@ -302,6 +320,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'category'][0...3] {name,slug,image}": GET_CATEGORY_LISTResult;
     "*[_type == 'furniture'] | order(soldAmount desc)[0...4] {cover,name,price,slug}": GET_BEST_SELLER_FURNITURESResult;
+    "*[_type == 'furniture'] | order(_createdAt desc)[0...2] {cover,name,price,slug}": GET_FOOTER_LATEST_FURNITURESResult;
     "*[_type == 'review'][0...6] {profileImage, name, location, content}": GET_REVIEWS_LIST_HOMEResult;
   }
 }
