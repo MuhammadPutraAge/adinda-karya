@@ -6,6 +6,8 @@ const ROUTES = {
   FAQ: "/faq",
   CART: "/cart",
   PRODUCT_DETAIL: (slug: string) => `/shop/${slug}`,
+  TRANSACTIONS: "/transactions",
+  FAVORITES: "/favorites",
 };
 
 export default ROUTES;

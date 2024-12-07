@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import SearchFurnitures from "./SearchFurnitures";
 import { NAV_LINKS } from "@/constants";
+import UserDropdown from "./UserDropdown";
 
 export default function Navbar() {
   return (
@@ -29,7 +30,7 @@ export default function Navbar() {
         <Link href={ROUTES.CART}>
           <Image src="/icons/cart.svg" alt="search" width={24} height={24} />
         </Link>
-        <Image src="/icons/profile.svg" alt="search" width={24} height={24} />
+        <UserDropdown />
       </div>
     </nav>
   );
