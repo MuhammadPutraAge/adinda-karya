@@ -7,7 +7,7 @@ import Navlinks from "./Navlinks";
 
 export default function Navbar() {
   return (
-    <nav className="flex-between fixed z-50 w-full bg-light px-40 py-4">
+    <nav className="flex-between sticky left-0 top-0 z-50 w-full bg-light px-40 py-4">
       <Link href={ROUTES.HOME}>
         <Image src="/logo.svg" alt="Adinda Karya Logo" width={56} height={56} />
       </Link>

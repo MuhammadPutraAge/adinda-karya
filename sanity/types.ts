@@ -68,6 +68,28 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Review = {
+  _id: string;
+  _type: "review";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  profileImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  location?: string;
+  content?: string;
+};
+
 export type Furniture = {
   _id: string;
   _type: "furniture";
@@ -213,7 +235,7 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Furniture | Category | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Review | Furniture | Category | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: sanity/lib/queries/categories.ts
 // Variable: GET_CATEGORY_LIST
@@ -254,11 +276,32 @@ export type GET_BEST_SELLER_FURNITURESResult = Array<{
   slug: Slug | null;
 }>;
 
+// Source: sanity/lib/queries/reviews.ts
+// Variable: GET_REVIEWS_LIST_HOME
+// Query: *[_type == 'review'][0...6] {profileImage, name, location, content}
+export type GET_REVIEWS_LIST_HOMEResult = Array<{
+  profileImage: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  name: string | null;
+  location: string | null;
+  content: string | null;
+}>;
+
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == 'category'][0...3] {name,slug,image}": GET_CATEGORY_LISTResult;
     "*[_type == 'furniture'] | order(soldAmount desc)[0...4] {cover,name,price,slug}": GET_BEST_SELLER_FURNITURESResult;
+    "*[_type == 'review'][0...6] {profileImage, name, location, content}": GET_REVIEWS_LIST_HOMEResult;
   }
 }
