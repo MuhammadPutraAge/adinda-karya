@@ -27,9 +27,9 @@ export default async function Sidebar() {
   return (
     <Sheet>
       <SheetTrigger className="block lg:hidden">
-        <Image src="/icons/menu.svg" alt="menu" width={24} height={24} />
+        <Image src="/icons/menu.svg" alt="menu" width={32} height={32} />
       </SheetTrigger>
-      <SheetContent className="flex flex-col gap-4">
+      <SheetContent className="flex flex-col gap-4 overflow-scroll">
         <SheetTitle className="mb-4">
           <div className="flex items-center gap-2">
             <Image src="/logo.svg" alt="logo" width={32} height={32} />
