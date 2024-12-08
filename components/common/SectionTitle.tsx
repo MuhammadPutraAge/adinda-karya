@@ -5,7 +5,7 @@ interface Props {
 
 export default function SectionTitle({ title, description }: Props) {
   return (
-    <div className="mb-12">
+    <div className="mb-8 sm:mb-12">
       <h1 className="section-title">{title}</h1>
       <p className="section-description">{description}</p>
     </div>

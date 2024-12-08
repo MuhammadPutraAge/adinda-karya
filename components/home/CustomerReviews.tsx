@@ -8,13 +8,13 @@ export default async function CustomerReviews() {
   const reviews = await client.fetch(GET_REVIEWS_LIST_HOME);
 
   return (
-    <section className="mb-36">
+    <section className="mb-28 sm:mb-36">
       <SectionTitle
         title="What Our Customers Say"
         description="Discover the real experiences and heartfelt stories from our valued customers who trust and recommend our products."
       />
 
-      <div className="grid grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {reviews.map((review) => (
           <div
             key={review.name}
