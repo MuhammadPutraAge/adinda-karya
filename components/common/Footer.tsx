@@ -13,7 +13,7 @@ import FooterFurnitures from "./FooterFurnitures";
 export default function Footer() {
   return (
     <footer className="bg-light">
-      <div className="grid grid-cols-4 gap-6 border border-dark/25 px-40 py-11">
+      <div className="wrapper grid grid-cols-4 gap-6 border border-dark/25 py-11">
         <div>
           <div className="mb-6 flex items-center gap-3">
             <Image src="/logo.svg" alt="Adinda Karya" width={60} height={60} />
@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex-between px-40 py-6">
+      <div className="flex-between wrapper py-6">
         <p className=" text-darkSage">
           &copy; 2025 Adinda Karya. All Rights Reserved.
         </p>

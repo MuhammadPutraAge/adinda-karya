@@ -7,7 +7,7 @@ export default function MainLayout({
   return (
     <>
       <Navbar />
-      <main className="mt-14 min-h-screen px-40">{children}</main>
+      <main className="wrapper mt-14 min-h-screen">{children}</main>
       <Footer />
     </>
   );

@@ -18,6 +18,10 @@
   .section-description {
     @apply mx-auto mt-2 max-w-lg text-center leading-6 text-grey;
   }
+
+  .wrapper {
+    @apply px-8 sm:px-16 md:px-24 lg:px-32 xl:px-40;
+  }
 }
 
 @layer base {
