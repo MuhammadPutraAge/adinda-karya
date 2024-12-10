@@ -7,7 +7,7 @@ interface Props {
 
 export default function FooterLink({ title, links }: Props) {
   return (
-    <div className="p-5">
+    <div className="lg:p-5">
       <p className="text-lg font-medium">{title}</p>
       <div className="mb-4 h-1 w-11 rounded-full bg-darkSage" />
 

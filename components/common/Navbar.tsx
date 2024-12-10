@@ -6,10 +6,11 @@ import SearchFurnitures from "./SearchFurnitures";
 import { NAV_LINKS } from "@/constants";
 import UserDropdown from "./UserDropdown";
 import Sidebar from "./Sidebar";
+import GlobalSearch from "./GlobalSearch";
 
 export default function Navbar() {
   return (
-    <nav className="flex-between wrapper sticky left-0 top-0 z-50 w-full bg-light py-4">
+    <nav className="flex-between wrapper sticky left-0 top-0 z-50 w-full gap-5 bg-light py-4 sm:gap-12">
       <Link href={ROUTES.HOME}>
         <Image
           src="/logo.svg"
@@ -30,13 +31,17 @@ export default function Navbar() {
         ))}
       </ul>
 
-      <div className="hidden items-center gap-6 lg:flex">
+      <GlobalSearch />
+
+      <div className="hidden items-center gap-3 lg:flex lg:gap-6">
         <Suspense>
           <SearchFurnitures />
         </Suspense>
+
         <Link href={ROUTES.CART}>
           <Image src="/icons/cart.svg" alt="search" width={24} height={24} />
         </Link>
+
         <UserDropdown />
       </div>
 

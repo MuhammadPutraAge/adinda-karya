@@ -5,6 +5,7 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
+  SheetDescription,
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
@@ -38,6 +39,7 @@ export default async function Sidebar() {
             </p>
           </div>
         </SheetTitle>
+        <SheetDescription className="hidden" />
 
         {NAV_LINKS.map((navLink) => (
           <SheetClose key={navLink.title} asChild>
@@ -61,7 +63,7 @@ export default async function Sidebar() {
               />
               <div className="overflow-hidden">
                 <p className="text-sm font-medium">{session.user?.name}</p>
-                <p className="truncate text-[10px] text-grey min-[380px]:text-[12px]">
+                <p className="min-[380px]:text-[12px] truncate text-[10px] text-grey">
                   {session.user?.email}
                 </p>
               </div>
