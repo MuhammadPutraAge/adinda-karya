@@ -8,7 +8,7 @@ export default async function CustomerReviews() {
   const reviews = await client.fetch(GET_REVIEWS_LIST_HOME);
 
   return (
-    <section className="mb-28 sm:mb-36">
+    <section className="mb-20 lg:mb-36">
       <SectionTitle
         title="What Our Customers Say"
         description="Discover the real experiences and heartfelt stories from our valued customers who trust and recommend our products."

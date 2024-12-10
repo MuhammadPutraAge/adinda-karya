@@ -9,14 +9,14 @@ export default async function BestSellerFurnitures() {
   const bestSellerFurnitures = await client.fetch(GET_BEST_SELLER_FURNITURES);
 
   return (
-    <section className="mb-36">
+    <section className="mb-20 lg:mb-36">
       <SectionTitle
         title="Best Selling Furnitures"
         description="Elevate your living space with customer favorites, combining unmatched
         comfort and timeless style."
       />
 
-      <div className="grid grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
         {bestSellerFurnitures.map((furniture) => (
           <FurnitureCard
             key={furniture.slug?.current}

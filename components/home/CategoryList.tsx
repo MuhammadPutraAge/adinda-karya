@@ -7,14 +7,14 @@ export default async function CategoryList() {
   const categoryList = await client.fetch(GET_CATEGORY_LIST);
 
   return (
-    <section className="mb-36 grid grid-cols-3 gap-6">
+    <section className="mb-20 grid grid-cols-1 gap-5 md:grid-cols-2 lg:mb-36 lg:gap-6 xl:grid-cols-3">
       {categoryList?.map((category) => (
         <div
           key={category.slug?.current}
           className="relative flex min-h-36 flex-col justify-center overflow-hidden rounded-lg bg-lightSage px-6"
         >
-          <h2 className="text-3xl font-medium">{category.name}</h2>
-          <p className="max-w-44 text-sm text-grey">
+          <h2 className="text-2xl font-medium lg:text-3xl">{category.name}</h2>
+          <p className="max-w-44 text-[12px] text-grey lg:text-sm">
             Discover our new {category.name?.toLowerCase()} collection.
           </p>
 

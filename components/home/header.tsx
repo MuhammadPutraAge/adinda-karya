@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <section className="mb-6 grid w-full grid-cols-1 gap-5 lg:gap-6 xl:grid-cols-5">
+    <section className="mb-5 grid w-full grid-cols-1 gap-5 lg:mb-6 lg:gap-6 xl:grid-cols-5">
       <div className="relative flex items-center justify-between rounded-lg bg-lightSage p-6 lg:px-10 xl:col-span-3">
         <div className="flex w-full flex-1 flex-col items-center sm:items-start">
           <p className="text-center text-[12px] font-medium sm:text-left sm:text-sm md:text-base">

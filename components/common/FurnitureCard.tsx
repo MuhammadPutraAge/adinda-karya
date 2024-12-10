@@ -21,8 +21,8 @@ export default function FurnitureCard({ cover, name, price, slug }: Props) {
           className="size-full"
         />
       </div>
-      <p className="mt-4 text-center text-xl font-medium">{name}</p>
-      <p className="text-center text-lg text-grey">{price}</p>
+      <p className="mt-4 text-center text-lg font-medium lg:text-xl">{name}</p>
+      <p className="text-center text-grey lg:text-lg">{price}</p>
     </Link>
   );
 }
